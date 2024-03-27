@@ -1,10 +1,21 @@
 spring: 
-  # datasource:
-  #   url: jdbc:h2:
-  #   username: sa                      
-  #   password:                         
-  #   driverClassName: org.h2.Driver    
+  datasource:
+    # url: jdbc:h2:mem:inventorydb
+    # username: sa                      
+    # password:                         
+    # driverClassName: org.h2.Driver 
+    url: jdbc:postgresql://localhost:5432/inventory
+    username: 
+    password: 
+  # jpa:
+  #   database-platform: org.hibernate.dialect.H2Dialect
+  #   defer-datasource-initialization: true
   
   output:
     ansi:
       enabled: ALWAYS
+
+logging:
+  level:
+    com:
+      skillstorm: debug
