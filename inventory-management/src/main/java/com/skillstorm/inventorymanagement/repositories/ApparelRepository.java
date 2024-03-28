@@ -1,7 +1,5 @@
 package com.skillstorm.inventorymanagement.repositories;
 
-import javax.management.Query;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

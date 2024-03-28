@@ -17,4 +17,8 @@ public class WarehouseService {
   public List<Warehouse> findAllWarehouses(){
     return warehouseRepository.findAll();
   }
+
+  public Warehouse saveWarehouse(Warehouse warehouse){
+    return warehouseRepository.save(warehouse);
+  }
 }
