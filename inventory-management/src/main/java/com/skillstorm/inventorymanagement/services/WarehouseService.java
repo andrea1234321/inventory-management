@@ -1,6 +1,7 @@
 package com.skillstorm.inventorymanagement.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,4 +22,22 @@ public class WarehouseService {
   public Warehouse saveWarehouse(Warehouse warehouse){
     return warehouseRepository.save(warehouse);
   }
+
+  public Warehouse findById(int id){
+    Optional<Warehouse> warehouse = warehouseRepository.findById(id);
+    if(warehouse.isPresent()){
+      return warehouse.get();
+    }else{
+      return null;
+    }
+  }
+
+  public Warehouse updateWarehouse(Warehouse currWarehouse, Warehouse userInputWarehouse){
+    currWarehouse.setCity(userInputWarehouse.getCity());
+    currWarehouse.setState(userInputWarehouse.getState());
+    currWarehouse.setCity(userInputWarehouse.getCity());
+    currWarehouse.setCapacity(userInputWarehouse.getCapacity());
+    return warehouseRepository.save(currWarehouse);
+  }
+
 }

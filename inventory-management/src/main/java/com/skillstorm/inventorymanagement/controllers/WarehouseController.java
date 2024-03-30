@@ -13,6 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 
@@ -36,6 +39,11 @@ public class WarehouseController {
       return new ResponseEntity<Warehouse>(newWarehouse, HttpStatus.ACCEPTED);
   }
   //update
-
+  @PutMapping("/warehouse/{id}")
+  public ResponseEntity<Warehouse> updateWarehouse(@RequestBody Warehouse userInputWarehouse, @PathVariable int id) {
+      Warehouse currWarehouse = warehouseService.findById(id);
+      Warehouse updatedWarehouse= warehouseService.updateWarehouse(currWarehouse, userInputWarehouse); 
+      return new ResponseEntity<Warehouse>(updatedWarehouse, HttpStatus.ACCEPTED);
+  }
   //delete
 }
