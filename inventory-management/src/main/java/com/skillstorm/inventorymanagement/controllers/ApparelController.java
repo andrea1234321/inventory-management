@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.inventorymanagement.models.Apparel;
 import com.skillstorm.inventorymanagement.services.ApparelService;
+
 
 @RestController
 @RequestMapping("/apparels")
@@ -20,7 +22,21 @@ public class ApparelController {
 
   @GetMapping
   public ResponseEntity<List<Apparel>> findAllApparels() {
-      List<Apparel> apparels = apparelService.findAllWarehouses();
-      return new ResponseEntity<List<Apparel>>(apparels, HttpStatus.OK);
+    List<Apparel> apparels = apparelService.findAllWarehouses();
+    return new ResponseEntity<List<Apparel>>(apparels, HttpStatus.OK);
   }
+
+  //read
+  @GetMapping("/apparel/{id}")
+  public ResponseEntity<Apparel> findApparelById(@PathVariable int id) {
+    Apparel apparel = apparelService.findById(id);
+    return new ResponseEntity<Apparel>(apparel, HttpStatus.OK);
+  }
+  
+
+  //create
+
+  //update
+
+  //delete
 }

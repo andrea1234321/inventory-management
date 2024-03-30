@@ -42,9 +42,11 @@ public class WarehouseService {
 
   public void deleteWarehouse(Warehouse warehouse){
     warehouseRepository.delete(warehouse);
+    //add functionality to delete all apparel with that id 
   }
-
+  
   public void deleteWarehouseById(int id){
     warehouseRepository.deleteById(id);
+    //add functionality to delete all apparel with that id 
   }
 }

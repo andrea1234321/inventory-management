@@ -2,6 +2,8 @@ package com.skillstorm.inventorymanagement.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,6 +14,10 @@ import jakarta.persistence.Table;
 public class Apparel {
 
   @Id
+  @Column
+  @GeneratedValue(strategy = GenerationType.IDENTITY) 
+  private int id; 
+
   @Column
   private String sku;
 
@@ -31,19 +37,22 @@ public class Apparel {
   public Apparel() {
   }
 
-  public Apparel(String sku, String category, String size, String location) {
-    this.sku = sku;
-    this.category = category;
-    this.size = size;
-    this.location = location;
-  }
 
-  public Apparel(String sku, String category, String size, String location, Warehouse warehouse) {
+  public Apparel(int id, String sku, String category, String size, String location, Warehouse warehouse) {
+    this.id = id;
     this.sku = sku;
     this.category = category;
     this.size = size;
     this.location = location;
     this.warehouse = warehouse;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getSku() {
@@ -91,6 +100,7 @@ public class Apparel {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
+    result = prime * result + id;
     result = prime * result + ((sku == null) ? 0 : sku.hashCode());
     result = prime * result + ((category == null) ? 0 : category.hashCode());
     result = prime * result + ((size == null) ? 0 : size.hashCode());
@@ -98,6 +108,7 @@ public class Apparel {
     result = prime * result + ((warehouse == null) ? 0 : warehouse.hashCode());
     return result;
   }
+
 
   @Override
   public boolean equals(Object obj) {
@@ -108,6 +119,8 @@ public class Apparel {
     if (getClass() != obj.getClass())
       return false;
     Apparel other = (Apparel) obj;
+    if (id != other.id)
+      return false;
     if (sku == null) {
       if (other.sku != null)
         return false;
@@ -136,11 +149,13 @@ public class Apparel {
     return true;
   }
 
+
   @Override
   public String toString() {
-    return "Apparel [sku=" + sku + ", category=" + category + ", size=" + size + ", location=" + location
+    return "Apparel [id=" + id + ", sku=" + sku + ", category=" + category + ", size=" + size + ", location=" + location
         + ", warehouse=" + warehouse + "]";
   }
+
   
   
   

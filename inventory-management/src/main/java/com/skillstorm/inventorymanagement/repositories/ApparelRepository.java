@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skillstorm.inventorymanagement.models.Apparel;
 
 @Repository
-public interface ApparelRepository extends JpaRepository<Apparel, String>{
+public interface ApparelRepository extends JpaRepository<Apparel, Integer>{
 
 }

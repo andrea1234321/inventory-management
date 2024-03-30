@@ -33,7 +33,7 @@ public class WarehouseController {
   }
   //read
   @GetMapping("/warehouse/{id}")
-  public ResponseEntity<Warehouse> getMethodName(@PathVariable int id) {
+  public ResponseEntity<Warehouse> findWarehouseById(@PathVariable int id) {
       Warehouse warehouse = warehouseService.findById(id);
       return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
   }
