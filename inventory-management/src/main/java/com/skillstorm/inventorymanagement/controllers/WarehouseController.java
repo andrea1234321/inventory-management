@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -31,6 +33,13 @@ public class WarehouseController {
       List<Warehouse> warehouses = warehouseService.findAllWarehouses();
       return new ResponseEntity<List<Warehouse>>(warehouses, HttpStatus.OK);
   }
+  //read
+  @GetMapping("/warehouse/{id}")
+  public ResponseEntity<Warehouse> getMethodName(@PathVariable int id) {
+      Warehouse warehouse = warehouseService.findById(id);
+      return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
+  }
+  
 
   //create 
   @PostMapping("/warehouse")
