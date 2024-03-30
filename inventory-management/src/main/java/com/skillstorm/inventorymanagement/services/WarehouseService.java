@@ -40,4 +40,11 @@ public class WarehouseService {
     return warehouseRepository.save(currWarehouse);
   }
 
+  public void deleteWarehouse(Warehouse warehouse){
+    warehouseRepository.delete(warehouse);
+  }
+
+  public void deleteWarehouseById(int id){
+    warehouseRepository.deleteById(id);
+  }
 }
