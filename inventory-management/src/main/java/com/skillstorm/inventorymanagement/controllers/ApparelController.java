@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.inventorymanagement.models.Apparel;
 import com.skillstorm.inventorymanagement.services.ApparelService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -32,9 +35,13 @@ public class ApparelController {
     Apparel apparel = apparelService.findById(id);
     return new ResponseEntity<Apparel>(apparel, HttpStatus.OK);
   }
-  
 
   //create
+  @PostMapping("/apparel")
+  public ResponseEntity<Apparel> createApparel(@RequestBody Apparel apparel) {
+    Apparel newApparel = apparelService.saveApparel(apparel);
+    return new ResponseEntity<Apparel>(newApparel, HttpStatus.ACCEPTED);
+  }
 
   //update
 

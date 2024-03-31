@@ -27,4 +27,8 @@ public class ApparelService {
       return null;
     }
   }
+
+  public Apparel saveApparel(Apparel apparel){
+    return apparelRepository.save(apparel);
+  }
 }
