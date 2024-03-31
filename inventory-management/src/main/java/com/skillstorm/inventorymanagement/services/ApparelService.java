@@ -31,4 +31,12 @@ public class ApparelService {
   public Apparel saveApparel(Apparel apparel){
     return apparelRepository.save(apparel);
   }
+
+  public void deleteApparel(Apparel apparel){
+    apparelRepository.delete(apparel);
+  }
+
+  public void deleteApparelById(int id){
+    apparelRepository.deleteById(id);
+  }
 }
