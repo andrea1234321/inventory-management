@@ -15,7 +15,7 @@ public class ApparelService {
   @Autowired
   ApparelRepository apparelRepository;
 
-  public List<Apparel> findAllWarehouses(){
+  public List<Apparel> findAllInventory(){
     return apparelRepository.findAll();
   }
 
@@ -31,6 +31,16 @@ public class ApparelService {
   public Apparel saveApparel(Apparel apparel){
     return apparelRepository.save(apparel);
   }
+
+  public Apparel updateApparel(Apparel currApparel, Apparel userInputApparel){
+    currApparel.setSku(userInputApparel.getSku());
+    currApparel.setCategory(userInputApparel.getCategory());
+    currApparel.setSize(userInputApparel.getSize());
+    currApparel.setLocation(userInputApparel.getLocation());
+    currApparel.setWarehouse(userInputApparel.getWarehouse());
+    return apparelRepository.save(currApparel);
+  }
+
 
   public void deleteApparel(Apparel apparel){
     apparelRepository.delete(apparel);

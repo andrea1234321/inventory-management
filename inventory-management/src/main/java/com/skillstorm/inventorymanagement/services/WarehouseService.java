@@ -35,7 +35,6 @@ public class WarehouseService {
   public Warehouse updateWarehouse(Warehouse currWarehouse, Warehouse userInputWarehouse){
     currWarehouse.setCity(userInputWarehouse.getCity());
     currWarehouse.setState(userInputWarehouse.getState());
-    currWarehouse.setCity(userInputWarehouse.getCity());
     currWarehouse.setCapacity(userInputWarehouse.getCapacity());
     return warehouseRepository.save(currWarehouse);
   }

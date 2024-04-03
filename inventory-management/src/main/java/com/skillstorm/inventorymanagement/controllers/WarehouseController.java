@@ -33,20 +33,20 @@ public class WarehouseController {
       return new ResponseEntity<List<Warehouse>>(warehouses, HttpStatus.OK);
   }
   //read
-  @GetMapping("/warehouse/{id}")
+  @GetMapping("/{id}")
   public ResponseEntity<Warehouse> findWarehouseById(@PathVariable int id) {
       Warehouse warehouse = warehouseService.findById(id);
       return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
   }
   
   //create 
-  @PostMapping("/warehouse")
+  @PostMapping
   public ResponseEntity<Warehouse> createWarehouse(@RequestBody Warehouse warehouse) {
       Warehouse newWarehouse = warehouseService.saveWarehouse(warehouse);
       return new ResponseEntity<Warehouse>(newWarehouse, HttpStatus.ACCEPTED);
   }
   //update
-  @PutMapping("/warehouse/{id}")
+  @PutMapping("/{id}")
   public ResponseEntity<Warehouse> updateWarehouse(@RequestBody Warehouse userInputWarehouse, @PathVariable int id) {
       Warehouse currWarehouse = warehouseService.findById(id);
       Warehouse updatedWarehouse= warehouseService.updateWarehouse(currWarehouse, userInputWarehouse); 
@@ -54,13 +54,13 @@ public class WarehouseController {
   }
 
   //delete
-  @DeleteMapping("/warehouse")
+  @DeleteMapping
   public ResponseEntity<Warehouse> deleteWarehouse(@RequestBody Warehouse warehouse){
     warehouseService.deleteWarehouse(warehouse);
     return ResponseEntity.noContent().build();
   }
 
-  @DeleteMapping("/warehouse/{id}")
+  @DeleteMapping("/{id}")
   public ResponseEntity<Warehouse> deleteWarehouseById(@PathVariable int id){
     int idToDelete= warehouseService.findById(id).getId();
     warehouseService.deleteWarehouseById(idToDelete);
