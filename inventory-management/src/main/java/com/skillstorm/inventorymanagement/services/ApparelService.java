@@ -49,4 +49,8 @@ public class ApparelService {
   public void deleteApparelById(int id){
     apparelRepository.deleteById(id);
   }
+
+  public void deleteApparelByWarehouseId(int warehouseId){
+    apparelRepository.deleteByWarehouseId(warehouseId);
+  }
 }
