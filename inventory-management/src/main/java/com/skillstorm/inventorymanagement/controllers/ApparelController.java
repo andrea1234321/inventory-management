@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.inventorymanagement.models.Apparel;
 import com.skillstorm.inventorymanagement.services.ApparelService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class ApparelController {
   @Autowired
   ApparelService apparelService;
+
 
   @GetMapping
   public ResponseEntity<List<Apparel>> findAllInventory() {
